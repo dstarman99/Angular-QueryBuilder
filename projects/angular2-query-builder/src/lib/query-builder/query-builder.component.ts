@@ -119,10 +119,12 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
   public onTouchedCallback: () => any;
 
   @Input() allowRuleset: boolean = true;
+  @Input() allowEmpty: boolean = false;
   @Input() allowCollapse: boolean = false;
   @Input() emptyMessage: string = 'A ruleset cannot be empty. Please add a rule or remove it all together.';
   @Input() classNames: QueryBuilderClassNames;
   @Input() operatorMap: { [key: string]: string[] };
+  @Input() conditions: string[];
   @Input() parentValue: RuleSet;
   @Input() config: QueryBuilderConfig = { fields: {} };
   @Input() parentArrowIconTemplate: QueryArrowIconDirective;

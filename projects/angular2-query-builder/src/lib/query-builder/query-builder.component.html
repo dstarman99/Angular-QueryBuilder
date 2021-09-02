@@ -47,6 +47,11 @@
           value="or" #orOption />
         <label (click)="changeCondition(orOption.value)" [ngClass]="getClassNames('switchLabel')">OR</label>
       </div>
+      <div [ngClass]="getClassNames('switchControl')">
+        <input type="radio" [ngClass]="getClassNames('switchRadio')" [(ngModel)]="data.condition" [disabled]=disabled
+          value="or not" #orNotOption />
+        <label (click)="changeCondition(orNotOption.value)" [ngClass]="getClassNames('switchLabel')">OR NOT</label>
+      </div>
     </div>
   </ng-template>
 </div>
@@ -161,7 +166,7 @@
             [parentButtonGroupTemplate]="parentButtonGroupTemplate || buttonGroupTemplate" [parentRemoveButtonTemplate]="parentRemoveButtonTemplate || removeButtonTemplate"
             [parentEmptyWarningTemplate]="parentEmptyWarningTemplate || emptyWarningTemplate" [parentArrowIconTemplate]="parentArrowIconTemplate || arrowIconTemplate"
             [parentValue]="data" [classNames]="classNames" [config]="config" [allowRuleset]="allowRuleset"
-            [allowCollapse]="allowCollapse" [emptyMessage]="emptyMessage" [operatorMap]="operatorMap">
+            [allowCollapse]="allowCollapse" [emptyMessage]="emptyMessage" [operatorMap]="operatorMap" [allowEmpty]="allowEmpty" [conditions]="conditions">
           </query-builder>
 
           <ng-container *ngIf="getEmptyWarningTemplate() as template; else defaultEmptyWarning">
